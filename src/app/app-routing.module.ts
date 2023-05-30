@@ -17,6 +17,11 @@ const routes: Routes = [
     path: 'registro',
     component: RegistroComponent,
   },
+  {
+    path: 'cursos',
+    loadChildren: () =>
+      import('./cursos/cursos.module').then((m) => m.CursosModule),
+  },
 ];
 
 @NgModule({

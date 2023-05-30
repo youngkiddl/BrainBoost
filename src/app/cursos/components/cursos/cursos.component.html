@@ -1,0 +1,35 @@
+<div class="container my-4">
+  <h2 class="text-center text-white my-3">Todos los cursos</h2>
+  <hr />
+  <div class="row">
+    <div *ngFor="let curso of cursos" class="col-md-4">
+      <div class="card mb-3">
+        <img
+          class="img-curso"
+          [src]="'http://localhost:3001/imagen/' + curso.foto"
+          [alt]="curso.nombre"
+        />
+        <!-- TITULO -->
+        <div class="text-start text-white m-2">
+          <h5>{{ curso.nombre }}</h5>
+        </div>
+
+        <div class="text-white mx-2">
+          <small
+            >{{ curso.instructor.usuario.nombre }}
+            {{ curso.instructor.usuario.apellido }}</small
+          >
+          <br />
+          <small class="text-warning">
+            {{ curso.instructor.calificacion }} &star; &star; &star; &star;
+            &star;</small
+          >
+          <br />
+          <h5 class="fw-bold mt-2">
+            {{ curso.precio | currency : "CLP" : "symbol" : "1.0" }}
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
