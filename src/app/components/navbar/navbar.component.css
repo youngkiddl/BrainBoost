@@ -2,3 +2,11 @@
     width: 30vw;
     margin: auto;
 }
+
+nav {
+    background-color: black;
+}
+
+li {
+    margin-right: 30px;
+}
