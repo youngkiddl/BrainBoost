@@ -38,14 +38,12 @@ export class LoginComponent {
       clave: this.loginForm.value['clave'],
     };
 
-    console.log(usuario);
-
     this.loading = true;
     this.authService.login(usuario).subscribe({
-      next: (token: string) => {
-        localStorage.setItem('token', token);
-        // const decodedToken = jwt_decode(token);
-        // localStorage.setItem('roles', JSON.stringify(decodedToken));
+      next: (data: any) => {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('usuario', JSON.stringify(data.usuarioEnviar));
+
         this.toastr.success('Inicio de sesion correcto');
         this.loading = false;
         this.router.navigate(['/']);

@@ -20,13 +20,20 @@ interface Instructor {
   usuario: Usuario;
 }
 
-interface Usuario {
+export interface Usuario {
   id: number;
   nombre: string;
   apellido: string;
   email: string;
-  clave: string;
   telefono: number;
   pais: string;
   fotografia: string;
+}
+
+export interface PostCurso {
+  portada: string;
+  nombre: string;
+  precio: number;
+  descripcion: string;
+  instructorId: number;
 }
