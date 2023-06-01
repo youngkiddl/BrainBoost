@@ -1,0 +1,27 @@
+.container {
+  max-width: 350px;
+  margin-top: 100px;
+}
+.titulo {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: #dcdcdc;
+}
+.btn-primary {
+  background-color: #3897f0;
+  border-color: #3897f0;
+  width: 100%;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #3897f0;
+  border-color: #3897f0;
+}
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+}

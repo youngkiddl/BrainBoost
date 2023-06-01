@@ -1,0 +1,39 @@
+.container {
+  background-color: #242424;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #a3815a;
+}
+
+.button-back {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  background-color: #be4040;
+}
+
+.button-back:hover {
+  background-color: #f13a3a;
+}
+.button-edit {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  background-color: #061257;
+}
+
+.button-edit:hover {
+  background-color: rgb(9, 47, 105);
+}
+
+.labels {
+  font-size: 23px;
+  color: white;
+}
+
+.circular {
+  height: 20rem;
+  width: 20rem;
+}
