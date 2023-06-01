@@ -2,9 +2,31 @@
   height: 25vh;
 }
 
+.img-carousel {
+  width: 1500px;
+  height: 400px;
+}
+
 .card {
   background-color: #141414;
   cursor: pointer;
+}
+
+.containerTitulo {
+  background-color: #0e0d0d;
+
+}
+
+.titulo {
+  color: white;
+  font-size: 1.7em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+
+.titulo:hover {
+  color: #28a745;
 }
 
 hr {
