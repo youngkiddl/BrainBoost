@@ -2,21 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { Curso } from '../interfaces/curso';
+import { Categoria } from '../interfaces/categoria';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CursoService {
+export class CategoriaService {
   private BASE_URL = environment.BASE_URL;
 
   constructor(private http: HttpClient) {}
 
-  getCursos(): Observable<Curso[]> {
-    return this.http.get<Curso[]>(`${this.BASE_URL}/cursos`);
-  }
-
-  postCurso(nuevoCurso: any) {
-    return this.http.post(`${this.BASE_URL}/curso`, nuevoCurso);
+  getCategorias(): Observable<Categoria[]> {
+    return this.http.get<Categoria[]>(`${this.BASE_URL}/categorias`);
   }
 }

@@ -11,7 +11,7 @@
   font-size: 20px;
   letter-spacing: 1px;
   font-weight: 500;
-  background-color: #be4040;
+  background-color: rgb(180, 0, 0);
 }
 
 .button-back:hover {
@@ -21,7 +21,7 @@
   font-size: 20px;
   letter-spacing: 1px;
   font-weight: 500;
-  background-color: #061257;
+  background-color: rgb(0, 180, 0);
 }
 
 .button-edit:hover {

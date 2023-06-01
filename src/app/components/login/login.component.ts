@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UsuarioLogin } from 'src/app/interfaces/usuarioLogin';
 import { AuthService } from 'src/app/services/auth.service';
 import { ErrorService } from 'src/app/services/error.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -40,10 +41,10 @@ export class LoginComponent {
 
     this.loading = true;
     this.authService.login(usuario).subscribe({
-      next: (data: any) => {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('usuario', JSON.stringify(data.usuarioEnviar));
-
+      next: (token: string) => {
+        localStorage.setItem('token', token);
+        const decodedToken = jwt_decode(token);
+        localStorage.setItem('usuario', JSON.stringify(decodedToken));
         this.toastr.success('Inicio de sesion correcto');
         this.loading = false;
         this.router.navigate(['/']);

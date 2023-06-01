@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from '../../interfaces/curso';
+import { CategoriaService } from '../../services/categoria.service';
+import { Categoria } from '../../interfaces/categoria';
+import { CursoService } from '../../services/curso.service';
 
 @Component({
   selector: 'app-crear-curso',
@@ -12,15 +15,21 @@ export class CrearCursoComponent implements OnInit {
   fotoFile!: File;
   crearCursoForm: FormGroup = this.fb.group({
     nombre: ['', [Validators.required]],
+    precio: ['', [Validators.required]],
+    categoria: [0, [Validators.required]],
+    descripcion: ['', [Validators.required]],
   });
 
-  usuario: any;
+  categorias: Categoria[] = [];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private categoriaService: CategoriaService,
+    private cursoService: CursoService
+  ) {}
 
   ngOnInit(): void {
-    this.usuario = localStorage.getItem('usuario');
-    console.log(this.usuario);
+    this.getCategorias();
   }
 
   cambiarFoto(event: any): void {
@@ -31,5 +40,32 @@ export class CrearCursoComponent implements OnInit {
       reader.onload = (e) => (this.fotoPrevisualizar = reader.result);
       reader.readAsDataURL(this.fotoFile);
     }
+  }
+
+  getCategorias() {
+    this.categoriaService.getCategorias().subscribe((data) => {
+      this.categorias = data;
+    });
+  }
+
+  postCurso() {
+    const usuarioString = localStorage.getItem('usuario');
+    const usuario = usuarioString ? JSON.parse(usuarioString) : null;
+
+    const usuarioId = usuario.usuario.id;
+    const nuevoCurso = new FormData();
+    nuevoCurso.append('nombre', this.crearCursoForm.value['nombre']),
+      nuevoCurso.append('precio', this.crearCursoForm.value['precio']),
+      nuevoCurso.append(
+        'descripcion',
+        this.crearCursoForm.value['descripcion']
+      ),
+      nuevoCurso.append('foto', this.fotoFile),
+      nuevoCurso.append('instructorId', usuarioId);
+    nuevoCurso.append('categoriaId', this.crearCursoForm.value['categoria']);
+
+    this.cursoService.postCurso(nuevoCurso).subscribe(() => {
+      console.log('curso creado');
+    });
   }
 }

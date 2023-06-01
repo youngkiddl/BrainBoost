@@ -29,11 +29,3 @@ export interface Usuario {
   pais: string;
   fotografia: string;
 }
-
-export interface PostCurso {
-  portada: string;
-  nombre: string;
-  precio: number;
-  descripcion: string;
-  instructorId: number;
-}
