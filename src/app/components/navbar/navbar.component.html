@@ -1,33 +1,54 @@
 <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
-    <div class="container-fluid py-1">
-      <a class="navbar-brand" href="#">BrainBoost</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+  <div class="container-fluid py-1">
+    <a class="navbar-brand" href="#">BrainBoost</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
+        <!-- Categorias dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Categorias
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let categoria of categorias">
+              <a class="dropdown-item" href="#">
+                {{ categoria.nombre | titlecase }}
+              </a>
+            </li>
+          </ul>
+        </li>
 
-          <!-- Categorias dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Categorias
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Desarrollo</a></li>
-              <li><a class="dropdown-item" href="#">Salud y Fitness</a></li>
-              <li><a class="dropdown-item" href="#">Música</a></li>
-            </ul>
-          </li>
+        <form class="d-flex" role="search">
+          <input
+            class="form-control search me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i> Buscar</button>
 
-          <form class="d-flex" role="search">
-            <input class="form-control search me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
-          </form>
-        </ul>
-      </div>
+        </form>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

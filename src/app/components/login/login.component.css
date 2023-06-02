@@ -1,27 +1,28 @@
 .container {
-  max-width: 350px;
-  margin-top: 100px;
+  margin-top: 120px;
 }
-.titulo {
-  text-align: center;
-  margin-bottom: 30px;
-  color: white;
+
+.fondoCarta {
+  background-color: #141414;
+  padding: 60px;
+  border-radius: 2%;
 }
-.form-control:focus {
-  box-shadow: none;
-  border-color: #dcdcdc;
+
+.aLinks {
+  font-size: 1.0em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  color: #198754;
 }
-.btn-primary {
-  background-color: #3897f0;
-  border-color: #3897f0;
-  width: 100%;
+
+.aLinks:hover {
+  color: #27c77c ;
 }
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: #3897f0;
-  border-color: #3897f0;
+
+span {
+  color: #27c77c;
 }
-.login-link {
-  text-align: center;
-  margin-top: 20px;
+
+.main-content {
+  min-height: calc(100% - 296px);
 }

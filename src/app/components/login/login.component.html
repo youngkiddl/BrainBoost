@@ -1,44 +1,61 @@
-<div class="container">
-  <div class="titulo">
-    <h2>Inicio de sesion</h2>
-  </div>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="form-group mb-2">
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        formControlName="email"
-        placeholder="Email"
-      />
-      <span
-        *ngIf="
-        loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']
-      "
-      >
-        Este campo es requerido
-      </span>
-    </div>
-    <div class="form-group mb-2">
-      <input
-        formControlName="clave"
-        type="password"
-        class="form-control"
-        id="clave"
-        placeholder="Contraseña"
-      />
+<div class="container main-content">
+  <div class="row">
+    <div class="col-md-3 col-sm-2"></div>
+    <div class="col-md-6 col-sm-8 fondoCarta">
+      <div class="titulo">
+        <h2 class="text-center text-white">Inicio de sesión</h2>
 
-      <span
-        *ngIf="
-        loginForm.get('clave')?.touched && loginForm.get('clave')?.errors?.['required']
-      "
-      >
-        Este campo es requerido
-      </span>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-group mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              placeholder="Email"
+            />
+            <span class="form-text mb-2"
+              *ngIf="
+            loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']
+          "
+            >
+              Este campo es requerido
+            </span>
+          </div>
+          <div class="form-group mb-3">
+            <input
+              formControlName="clave"
+              type="password"
+              class="form-control"
+              id="clave"
+              placeholder="Contraseña"
+            />
+
+            <span class="form-text mb-2"
+              *ngIf="
+            loginForm.get('clave')?.touched && loginForm.get('clave')?.errors?.['required']
+          "
+            >
+              Este campo es requerido
+            </span>
+          </div>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-outline-success">
+              Iniciar sesión
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="mt-3 text-center">
+        <p class="text-white">o</p>
+        <a class="aLinks" href="#">¿Olvidaste tu contraseña?</a>
+
+        <hr style="color: white" />
+
+        <p class="text-white">¿No tienes una cuenta?</p>
+        <a class="aLinks" href="#">Regístrate</a>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-  </form>
-  <div class="login-link">
-    <a href="#">¿Olvidaste tu contraseña?</a>
+    <div class="col-md-3 col-sm-2"></div>
   </div>
 </div>

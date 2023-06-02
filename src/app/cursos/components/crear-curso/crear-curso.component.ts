@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from '../../interfaces/curso';
-import { CategoriaService } from '../../services/categoria.service';
+import { CategoriaService } from '../../../services/categoria.service';
 import { Categoria } from '../../interfaces/categoria';
 import { CursoService } from '../../services/curso.service';
 
