@@ -59,21 +59,26 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4">
+    <div *ngFor="let curso of cursos" class="col-md-4">
       <div class="card mb-3">
         <img
           class="img-curso"
-          src="https://img-c.udemycdn.com/course/750x422/2584992_2ae2_2.jpg"
+          [src]="'http://localhost:3001/imagen/' + curso.foto"
+          [alt]="curso.nombre"
         />
         <!-- TITULO -->
         <div class="text-start text-white m-2">
-          <h5>Curso RXJS para principiante</h5>
+          <h5>{{ curso.nombre }}</h5>
         </div>
 
         <div class="text-white mx-2">
-          <small>René Puente</small> <br />
+          <small
+            >{{ curso.instructor.usuario.nombre }}
+            {{ curso.instructor.usuario.apellido }}</small
+          >
+          <br />
           <small class="text-warning">
-            4,8
+            {{ curso.instructor.calificacion }}
             <i class="bi bi-star-fill me-1"></i>
             <i class="bi bi-star-fill me-1"></i>
             <i class="bi bi-star-fill me-1"></i>
@@ -81,142 +86,9 @@
             <i class="bi bi-star-fill me-1"></i>
           </small>
           <br />
-          <h5 class="fw-bold mt-2">$ 50.000 CLP</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card mb-3">
-        <img
-          class="img-curso"
-          src="https://img-c.udemycdn.com/course/480x270/2680160_3375_5.jpg"
-        />
-        <!-- TITULO -->
-        <div class="text-start text-white m-2">
-          <h5>Curso Javascript para principiante</h5>
-        </div>
-
-        <div class="text-white mx-2">
-          <small>René Puente</small> <br />
-          <small class="text-warning">
-            4,8
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-          </small>
-          <br />
-          <h5 class="fw-bold mt-2">$ 50.000 CLP</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card mb-3">
-        <img
-          class="img-curso"
-          src="https://img-c.udemycdn.com/course/750x422/3662358_4d6e_2.jpg"
-        />
-        <!-- TITULO -->
-        <div class="text-start text-white m-2">
-          <h5>Curso Angular para principiante</h5>
-        </div>
-
-        <div class="text-white mx-2">
-          <small>René Puente</small> <br />
-          <small class="text-warning">
-            4,8
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-          </small>
-          <br />
-          <h5 class="fw-bold mt-2">$ 50.000 CLP</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card mb-3">
-        <img
-          class="img-curso"
-          src="https://img-c.udemycdn.com/course/750x422/2584992_2ae2_2.jpg"
-        />
-        <!-- TITULO -->
-        <div class="text-start text-white m-2">
-          <h5>Curso RXJS para principiante</h5>
-        </div>
-
-        <div class="text-white mx-2">
-          <small>René Puente</small> <br />
-          <small class="text-warning">
-            4,8
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-          </small>
-          <br />
-          <h5 class="fw-bold mt-2">$ 50.000 CLP</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card mb-3">
-        <img
-          class="img-curso"
-          src="https://img-c.udemycdn.com/course/480x270/2680160_3375_5.jpg"
-        />
-        <!-- TITULO -->
-        <div class="text-start text-white m-2">
-          <h5>Curso Javascript para principiante</h5>
-        </div>
-
-        <div class="text-white mx-2">
-          <small>René Puente</small> <br />
-          <small class="text-warning">
-            4,8
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-          </small>
-          <br />
-          <h5 class="fw-bold mt-2">$ 50.000 CLP</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card mb-3">
-        <img
-          class="img-curso"
-          src="https://img-c.udemycdn.com/course/750x422/3662358_4d6e_2.jpg"
-        />
-        <!-- TITULO -->
-        <div class="text-start text-white m-2">
-          <h5>Curso Angular para principiante</h5>
-        </div>
-
-        <div class="text-white mx-2">
-          <small>René Puente</small> <br />
-          <small class="text-warning">
-            4,8
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-            <i class="bi bi-star-fill me-1"></i>
-          </small>
-          <br />
-          <h5 class="fw-bold mt-2">$ 50.000 CLP</h5>
+          <h5 class="fw-bold mt-2">
+            {{ curso.precio | currency : "CLP" : "symbol" : "1.0" }}
+          </h5>
         </div>
       </div>
     </div>

@@ -1,0 +1,27 @@
+.container {
+  margin-top: 120px;
+}
+
+.fondoCarta {
+  background-color: #141414;
+  padding: 60px;
+  border-radius: 2%;
+}
+
+.aLinks {
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+  color: #198754;
+}
+
+.aLinks:hover {
+  color: #27c77c ;
+}
+
+span {
+  color: #27c77c;
+}
+
+.main-content {
+  min-height: calc(100% - 296px);
+}
