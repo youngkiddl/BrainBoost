@@ -7,9 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { CursoComponent } from './components/curso/curso.component';
 import { CrearCursoComponent } from './components/crear-curso/crear-curso.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CursosInstructorComponent } from './components/cursos-instructor/cursos-instructor.component';
+import { AgregarVideoComponent } from './components/agregar-video/agregar-video.component';
 
 @NgModule({
-  declarations: [CursosComponent, CursoComponent, CrearCursoComponent],
+  declarations: [CursosComponent, CursoComponent, CrearCursoComponent, CursosInstructorComponent, AgregarVideoComponent],
   imports: [
     CommonModule,
     CursosRoutingModule,

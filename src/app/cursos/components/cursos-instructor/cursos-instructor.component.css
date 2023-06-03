@@ -1,0 +1,12 @@
+.img-curso {
+  height: 25vh;
+}
+
+.card {
+  background-color: #141414;
+  cursor: pointer;
+}
+
+hr {
+  color: white;
+}

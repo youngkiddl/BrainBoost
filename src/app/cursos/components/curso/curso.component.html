@@ -1,1 +1,47 @@
-<p>curso works!</p>
+<div class="text-white container" *ngIf="!loading">
+  <img
+    [src]="'http://localhost:3001/imagen/' + curso.foto"
+    [alt]="curso.nombre"
+  />
+  <h2>{{ curso.nombre }}</h2>
+  <h2>{{ curso.precio }}</h2>
+
+  <form [formGroup]="videoForm" (ngSubmit)="subirVideo()">
+    <span>Subir video</span>
+    <input
+      class="form-control"
+      type="file"
+      accept="video/"
+      (change)="cambiarVideo($event)"
+    />
+
+    <input
+      type="text"
+      class="form-control"
+      formControlName="titulo"
+      placeholder="inserta un titulo"
+    />
+
+    <input
+      type="text"
+      class="form-control"
+      formControlName="descripcion"
+      placeholder="inserta una descripcion"
+    />
+
+    <button type="submit">Agregar video</button>
+  </form>
+
+  <div class="row">
+    <div class="col-4" *ngFor="let video of curso.videos">
+      <span>{{ video.titulo }}</span>
+      <p>{{ video.descripcion }}</p>
+      <video width="200" height="200" class="me-1" controls>
+        <source
+          [src]="'http://localhost:3001/imagen/' + video.video"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+  </div>
+</div>
