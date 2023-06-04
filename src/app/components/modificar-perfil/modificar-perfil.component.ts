@@ -15,7 +15,6 @@ export class ModificarPerfilComponent implements OnInit {
   fotoFile!: File;
   loading: boolean = true;
 
-
   public formEditarUsuario: FormGroup = this.fb.group({
     nombre: ['', [Validators.required]],
     apellido: ['', [Validators.required]],
@@ -74,15 +73,11 @@ export class ModificarPerfilComponent implements OnInit {
     usuario.append('email', this.formEditarUsuario.value['email']);
     usuario.append('telefono', this.formEditarUsuario.value['telefono']);
     usuario.append('pais', this.formEditarUsuario.value['pais']);
-
-    console.log(usuario.getAll('fotografia'));
-    console.log(usuario.getAll('email'));
-    console.log(usuario.getAll('telefono'));
-    console.log(usuario.getAll('pais'));
-
+    usuario.append('id', usuarioId);
+    usuario.append('fotografia', this.fotoFile);
 
     this.loading = true;
-    this.usuarioService.modificarUsuario(usuarioId, usuario, this.fotoFile).subscribe(() => {
+    this.usuarioService.modificarUsuario(usuario).subscribe(() => {
       this.loading = false;
       this.toastr.success('Usuario actualizado con exito');
     });

@@ -15,7 +15,7 @@ export class UsuarioService {
     return this.http.get<Usuario>(`${this.miUrlBase}/usuario/${id}`);
   }
 
-  modificarUsuario(id: number, usuario: any, fotografia: File): Observable<void> {
-    return this.http.patch<void>(`${this.miUrlBase}/modificar`, { usuario, id, fotografia });
+  modificarUsuario(usuario: any): Observable<void> {
+    return this.http.patch<void>(`${this.miUrlBase}/modificar`, usuario);
   }
 }
