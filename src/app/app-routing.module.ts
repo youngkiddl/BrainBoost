@@ -4,6 +4,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
+import { ModificarPerfilComponent } from './components/modificar-perfil/modificar-perfil.component';
 
 const routes: Routes = [
   {
@@ -24,8 +25,12 @@ const routes: Routes = [
       import('./cursos/cursos.module').then((m) => m.CursosModule),
   },
   {
-    path: 'miPerfil',
+    path: 'perfil',
     component: MiPerfilComponent,
+  },
+  {
+    path: 'modificar-perfil',
+    component: ModificarPerfilComponent,
   },
 ];
 

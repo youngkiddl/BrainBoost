@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
+import { ModificarPerfilComponent } from './components/modificar-perfil/modificar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
     MainPageComponent,
     FooterComponent,
     MiPerfilComponent,
+    ModificarPerfilComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,30 @@
-<div class="container main-content">
+<div class="container mt-5 main-content">
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 fondoCarta">
-      <div class="titulo">
+      <div>
         <h2 class="text-center text-white">Crea tu cuenta</h2>
 
         <div class="row">
+          <div class="col-md-6 col-sm-12 form-group mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Correo electronico"
+            />
+            <span class="form-text mb-2"> Este campo es requerido </span>
+          </div>
+
+          <div class="col-md-6 col-sm-12 form-group mb-3">
+            <select class="form-select">
+              <option value="0">Seleccione el tipo de cuenta</option>
+              <option value="1">Estudiante</option>
+              <option value="2">Instructor</option>
+            </select>
+            <span class="form-text mb-2"> Este campo es requerido </span>
+          </div>
+
           <div class="col-md-6 col-sm-12 form-group mb-3">
             <input
               type="text"
@@ -67,11 +86,11 @@
           </div>
         </div>
 
-          <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-outline-success">
-              Registrarse
-            </button>
-          </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-outline-success">
+            Registrarse
+          </button>
+        </div>
       </div>
       <div class="mt-3 text-center">
         <p class="text-white">o</p>

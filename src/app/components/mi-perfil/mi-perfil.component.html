@@ -1,87 +1,43 @@
-<div class="container main-content">
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10 fondoCarta">
-        <div class="titulo">
-          <h2 class="text-center text-white">Mi Perfil</h2>
-  
-          <div class="row">
-            <div class="col-md-6 col-sm-12 form-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="nombre"
-                placeholder="Nombre completo"
-              />
-              <span class="form-text mb-2"> Este campo es requerido </span>
-            </div>
-  
-            <div class="col-md-6 col-sm-12 form-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="apellido"
-                placeholder="Apellido completo"
-              />
-              <span class="form-text mb-2"> Este campo es requerido </span>
-            </div>
-  
-            <div class="col-md-6 col-sm-12 form-group mb-3">
-              <input
-                type="number"
-                class="form-control"
-                id="telefono"
-                placeholder="Telefono"
-              />
-              <span class="form-text mb-2"> Este campo es requerido </span>
-            </div>
-  
-            <div class="col-md-6 col-sm-12 form-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="pais"
-                placeholder="País"
-              />
-              <span class="form-text mb-2"> Este campo es requerido </span>
-            </div>
-  
-            <div class="col-md-6 col-sm-12 form-group mb-3">
-              <input
-                type="password"
-                class="form-control"
-                id="clave"
-                placeholder="Contraseña"
-              />
-              <span class="form-text mb-2"> Este campo es requerido </span>
-            </div>
-  
-            <div class="col-md-6 col-sm-12 form-group mb-3">
-              <input
-                type="password"
-                class="form-control"
-                id="clave2"
-                placeholder="Reingresa tu contraseña"
-              />
-              <span class="form-text mb-2"> Este campo es requerido </span>
-            </div>
-          </div>
-  
-            <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-outline-success">
-                Guardar
-              </button>
-            </div>
-
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-outline-success">
-                  Cancelar
-                </button>
-              </div>
+<div *ngIf="!loading" class="container mt-5 main-content">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 fondoCarta">
+      <div>
+        <h2 class="text-center text-white">Mi perfil</h2>
+        <hr style="color: white" />
+        <div class="d-flex flex-column align-items-center text-center my-5">
+          <img
+            [src]="'http://localhost:3001/imagen/' + usuario.fotografia"
+            class="circular"
+          />
         </div>
-       
+        <ul class="list-group">
+          <li class="list-group-item disabled" aria-disabled="true">
+            Nombre completo: {{ usuario.nombre | titlecase }}
+            {{ usuario.apellido | titlecase }}
+          </li>
+          <li class="list-group-item disabled" aria-disabled="true">
+            Correo: {{ usuario.email }}
+          </li>
+          <li class="list-group-item disabled" aria-disabled="true">
+            Telefono: {{ usuario.telefono }}
+          </li>
+          <li class="list-group-item disabled" aria-disabled="true">
+            Pais: {{ usuario.pais }}
+          </li>
+        </ul>
+
+        <div class="d-grid gap-2 my-3">
+          <button
+            routerLink="/modificar-perfil"
+            type="submit"
+            class="btn btn-outline-success"
+          >
+            Modificar Perfil
+          </button>
+        </div>
+        <div class="col-md-1"></div>
       </div>
-      <div class="col-md-1"></div>
     </div>
   </div>
-  
+</div>
