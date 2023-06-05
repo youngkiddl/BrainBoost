@@ -5,13 +5,13 @@
         <h2 class="text-center text-white">Mi perfil</h2>
         <hr style="color: white" />
         <div class="row">
-          <div class="col-md-6 col-sm-5 text-center mb-3">
+          <div class="col-md-6 col-sm-12 text-center mb-3">
             <img
               [src]="'http://localhost:3001/imagen/' + usuario.fotografia"
               class="circular"
             />
           </div>
-          <div class="col-md-6 col-sm-7 text-white">
+          <div class="col-md-6 col-sm-12 text-white text-break">
             <h4 class="mb-3">
               <i class="bi bi-x-diamond text-success me-1"></i>
               {{ usuario.nombre | titlecase }}
@@ -21,7 +21,7 @@
               <i class="bi bi-geo-alt text-success me-1"></i>
               {{ usuario.pais | titlecase }}
             </h4>
-            <h4 class="mb-3">
+            <h4 class="mb-3 correo">
               <i class="bi bi-envelope text-success me-1"></i>
               {{ usuario.email }}
             </h4>

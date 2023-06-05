@@ -1,4 +1,7 @@
-
+.circular {
+  height: 12rem;
+  width: 12rem;
+}
 
 .fondoCarta {
   background-color: #141414;
@@ -13,7 +16,7 @@
 }
 
 .aLinks:hover {
-  color: #27c77c ;
+  color: #27c77c;
 }
 
 span {

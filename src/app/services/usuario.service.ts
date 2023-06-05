@@ -18,4 +18,8 @@ export class UsuarioService {
   modificarUsuario(usuario: any): Observable<void> {
     return this.http.patch<void>(`${this.miUrlBase}/modificar`, usuario);
   }
+
+  registrarse(usuario: any): Observable<void> {
+    return this.http.post<void>(`${this.miUrlBase}/registro`, usuario);
+  }
 }

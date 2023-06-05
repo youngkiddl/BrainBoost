@@ -2,96 +2,114 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 fondoCarta">
-      <div>
-        <h2 class="text-center text-white">Crea tu cuenta</h2>
-
-        <div class="row">
-          <div class="col-md-6 col-sm-12 form-group mb-3">
+      <form [formGroup]="formRegistrar">
+        <div>
+          <h2 class="text-center text-white">Crea tu cuenta</h2>
+          <hr style="color: white" />
+          <div class="text-center">
+            <img class="circular" [src]="'../../../assets/foto.png'" />
+            <h6 class="mt-1 text-white">Portada curso</h6>
             <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="Correo electronico"
+              class="form-control mb-3"
+              type="file"
+              accept="image/png, image/jpeg"
             />
-            <span class="form-text mb-2"> Este campo es requerido </span>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-sm-12 form-group mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Correo electronico"
+                formControlName="email"
+              />
+              <span class="form-text mb-2"> Este campo es requerido </span>
+            </div>
+
+            <div class="col-md-6 col-sm-12 form-group mb-3">
+              <select class="form-select" formControlName="tipo">
+                <option value="0">Seleccione el tipo de cuenta</option>
+                <option value="1">Estudiante</option>
+                <option value="2">Instructor</option>
+              </select>
+              <span class="form-text mb-2"> Este campo es requerido </span>
+            </div>
+
+            <div class="col-md-6 col-sm-12 form-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                placeholder="Nombre completo"
+                formControlName="nombre"
+              />
+              <span class="form-text mb-2"> Este campo es requerido </span>
+            </div>
+
+            <div class="col-md-6 col-sm-12 form-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="apellido"
+                placeholder="Apellido completo"
+                formControlName="apellido"
+              />
+              <span class="form-text mb-2"> Este campo es requerido </span>
+            </div>
+
+            <div class="col-md-6 col-sm-12 form-group mb-3">
+              <input
+                type="number"
+                class="form-control"
+                id="telefono"
+                placeholder="Telefono"
+                formControlName="telefono"
+              />
+              <span class="form-text mb-2"> Este campo es requerido </span>
+            </div>
+
+            <div class="col-md-6 col-sm-12 form-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="pais"
+                placeholder="País"
+                formControlName="pais"
+              />
+              <span class="form-text mb-2"> Este campo es requerido </span>
+            </div>
+
+            <div class="col-md-6 col-sm-12 form-group mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="clave"
+                placeholder="Contraseña"
+                formControlName="clave"
+              />
+              <span class="form-text mb-2"> Este campo es requerido </span>
+            </div>
+
+            <div class="col-md-6 col-sm-12 form-group mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="clave2"
+                placeholder="Reingresa tu contraseña"
+                formControlName="clave2"
+              />
+              <span class="form-text mb-2"> Este campo es requerido </span>
+            </div>
           </div>
 
-          <div class="col-md-6 col-sm-12 form-group mb-3">
-            <select class="form-select">
-              <option value="0">Seleccione el tipo de cuenta</option>
-              <option value="1">Estudiante</option>
-              <option value="2">Instructor</option>
-            </select>
-            <span class="form-text mb-2"> Este campo es requerido </span>
-          </div>
-
-          <div class="col-md-6 col-sm-12 form-group mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="nombre"
-              placeholder="Nombre completo"
-            />
-            <span class="form-text mb-2"> Este campo es requerido </span>
-          </div>
-
-          <div class="col-md-6 col-sm-12 form-group mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="apellido"
-              placeholder="Apellido completo"
-            />
-            <span class="form-text mb-2"> Este campo es requerido </span>
-          </div>
-
-          <div class="col-md-6 col-sm-12 form-group mb-3">
-            <input
-              type="number"
-              class="form-control"
-              id="telefono"
-              placeholder="Telefono"
-            />
-            <span class="form-text mb-2"> Este campo es requerido </span>
-          </div>
-
-          <div class="col-md-6 col-sm-12 form-group mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="pais"
-              placeholder="País"
-            />
-            <span class="form-text mb-2"> Este campo es requerido </span>
-          </div>
-
-          <div class="col-md-6 col-sm-12 form-group mb-3">
-            <input
-              type="password"
-              class="form-control"
-              id="clave"
-              placeholder="Contraseña"
-            />
-            <span class="form-text mb-2"> Este campo es requerido </span>
-          </div>
-
-          <div class="col-md-6 col-sm-12 form-group mb-3">
-            <input
-              type="password"
-              class="form-control"
-              id="clave2"
-              placeholder="Reingresa tu contraseña"
-            />
-            <span class="form-text mb-2"> Este campo es requerido </span>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-outline-success">
+              Registrarse
+            </button>
           </div>
         </div>
-
-        <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-outline-success">
-            Registrarse
-          </button>
-        </div>
-      </div>
+      </form>
       <div class="mt-3 text-center">
         <p class="text-white">o</p>
         <p class="text-white" href="#">¿Ya tienes una cuenta?</p>
