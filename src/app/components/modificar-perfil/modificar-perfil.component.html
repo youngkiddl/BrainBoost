@@ -3,12 +3,16 @@
     <div class="col-md-1"></div>
     <div class="col-md-10 fondoCarta">
       <div>
-        <form [formGroup]="formEditarUsuario" (ngSubmit)="modificarUsuario()" autocomplete="off">
+        <form
+          [formGroup]="formEditarUsuario"
+          (ngSubmit)="modificarUsuario()"
+          autocomplete="off"
+        >
           <h2 class="text-center text-white">Modificar perfil</h2>
+          <hr style="color: white" />
+
           <div class="d-flex flex-column align-items-center text-center my-4">
-            <img [src]="fotoPrevisualizar"
-              class="circular"
-            />
+            <img [src]="fotoPrevisualizar" class="circular" />
             <input
               class="form-control mt-3"
               type="file"
@@ -16,7 +20,7 @@
               (change)="cambiarFoto($event)"
             />
           </div>
-          <hr style="color: white;">
+          <hr style="color: white" />
           <div class="row text-white">
             <div class="col-md-6 col-sm-12 form-group mb-3">
               <label for="nombre" class="form-label">Nombre</label>
@@ -51,7 +55,6 @@
                 id="email"
                 placeholder="Correo electronico"
                 formControlName="email"
-
               />
               <span class="form-text mb-2"> Este campo es requerido </span>
             </div>
@@ -64,7 +67,6 @@
                 id="telefono"
                 placeholder="Telefono"
                 formControlName="telefono"
-
               />
               <span class="form-text mb-2"> Este campo es requerido </span>
             </div>

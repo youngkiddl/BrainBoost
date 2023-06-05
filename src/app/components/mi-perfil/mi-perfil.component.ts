@@ -12,7 +12,6 @@ export class MiPerfilComponent implements OnInit {
   // servicios
   private usuarioService = inject(UsuarioService);
   // variables
-
   public loading: boolean = true;
   public usuario!: Usuario;
 

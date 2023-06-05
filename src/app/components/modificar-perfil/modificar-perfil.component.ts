@@ -79,7 +79,7 @@ export class ModificarPerfilComponent implements OnInit {
     this.loading = true;
     this.usuarioService.modificarUsuario(usuario).subscribe(() => {
       this.loading = false;
-      this.toastr.success('Usuario actualizado con exito');
+      this.toastr.success('Se modificaron sus datos correctamente');
     });
   }
 }

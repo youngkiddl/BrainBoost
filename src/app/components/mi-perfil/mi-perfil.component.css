@@ -1,6 +1,9 @@
+span {
+  color: #27c77c;
+}
 .circular {
-  height: 15rem;
-  width: 15rem;
+  height: 10rem;
+  width: 10rem;
   border-radius: 50%;
 }
 
@@ -17,10 +20,6 @@
 }
 
 .aLinks:hover {
-  color: #27c77c ;
-}
-
-span {
   color: #27c77c;
 }
 
@@ -28,3 +27,17 @@ span {
   min-height: calc(100% - 224px);
 }
 
+.infoUser {
+  text-align: start;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* @media (max-width: 1200px) {
+  .circular {
+    text-align: center;
+  }
+} */

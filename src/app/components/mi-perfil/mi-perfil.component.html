@@ -1,43 +1,63 @@
 <div *ngIf="!loading" class="container mt-5 main-content">
   <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10 fondoCarta">
+    <div class="col-12 fondoCarta">
       <div>
         <h2 class="text-center text-white">Mi perfil</h2>
         <hr style="color: white" />
-        <div class="d-flex flex-column align-items-center text-center my-5">
-          <img
-            [src]="'http://localhost:3001/imagen/' + usuario.fotografia"
-            class="circular"
-          />
-        </div>
-        <ul class="list-group">
-          <li class="list-group-item disabled" aria-disabled="true">
-            Nombre completo: {{ usuario.nombre | titlecase }}
-            {{ usuario.apellido | titlecase }}
-          </li>
-          <li class="list-group-item disabled" aria-disabled="true">
-            Correo: {{ usuario.email }}
-          </li>
-          <li class="list-group-item disabled" aria-disabled="true">
-            Telefono: {{ usuario.telefono }}
-          </li>
-          <li class="list-group-item disabled" aria-disabled="true">
-            Pais: {{ usuario.pais }}
-          </li>
-        </ul>
+        <div class="row">
+          <div class="col-md-6 col-sm-5 text-center mb-3">
+            <img
+              [src]="'http://localhost:3001/imagen/' + usuario.fotografia"
+              class="circular"
+            />
+          </div>
+          <div class="col-md-6 col-sm-7 text-white">
+            <h4 class="mb-3">
+              <i class="bi bi-x-diamond text-success me-1"></i>
+              {{ usuario.nombre | titlecase }}
+              {{ usuario.apellido | titlecase }}
+            </h4>
+            <h4 class="mb-3">
+              <i class="bi bi-geo-alt text-success me-1"></i>
+              {{ usuario.pais | titlecase }}
+            </h4>
+            <h4 class="mb-3">
+              <i class="bi bi-envelope text-success me-1"></i>
+              {{ usuario.email }}
+            </h4>
+            <h4 class="mb-3">
+              <i class="bi bi-telephone text-success me-1"></i>
+              {{ usuario.telefono }}
+            </h4>
+          </div>
 
-        <div class="d-grid gap-2 my-3">
-          <button
-            routerLink="/modificar-perfil"
-            type="submit"
-            class="btn btn-outline-success"
-          >
-            Modificar Perfil
-          </button>
+          <div class="d-grid gap-2 my-3">
+            <button
+              routerLink="/modificar-perfil"
+              type="submit"
+              class="btn btn-outline-success"
+            >
+              Editar Perfil
+            </button>
+          </div>
         </div>
-        <div class="col-md-1"></div>
       </div>
     </div>
   </div>
+
+  <!-- <ul class="list-group">
+  <li class="list-group-item disabled" aria-disabled="true">
+    Nombre completo: {{ usuario.nombre | titlecase }}
+    {{ usuario.apellido | titlecase }}
+  </li>
+  <li class="list-group-item disabled" aria-disabled="true">
+    Correo: {{ usuario.email }}
+  </li>
+  <li class="list-group-item disabled" aria-disabled="true">
+    Telefono: {{ usuario.telefono }}
+  </li>
+  <li class="list-group-item disabled" aria-disabled="true">
+    Pais: {{ usuario.pais }}
+  </li>
+</ul> -->
 </div>
