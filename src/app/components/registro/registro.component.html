@@ -2,17 +2,21 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 fondoCarta">
-      <form [formGroup]="formRegistrar">
+      <form [formGroup]="formRegistrar" (ngSubmit)="registrar()">
         <div>
           <h2 class="text-center text-white">Crea tu cuenta</h2>
           <hr style="color: white" />
           <div class="text-center">
-            <img class="circular" [src]="'../../../assets/foto.png'" />
-            <h6 class="mt-1 text-white">Portada curso</h6>
+            <img
+              class="circular"
+              [src]="fotoPrevisualizar || '../../../assets/foto.png'"
+            />
+            <h5 class="mt-1 text-white text-start">Foto perfil</h5>
             <input
               class="form-control mb-3"
               type="file"
               accept="image/png, image/jpeg"
+              (change)="cambiarFoto($event)"
             />
           </div>
           <div class="row">
@@ -24,16 +28,25 @@
                 placeholder="Correo electronico"
                 formControlName="email"
               />
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span *ngIf="isValidField('email')" class="form-text mb-2">
+                El correo debe ser en un formato valido. <br />
+                {{ getFieldError("email") }}
+              </span>
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
-              <select class="form-select" formControlName="tipo">
+              <select class="form-select" formControlName="perfil">
                 <option value="0">Seleccione el tipo de cuenta</option>
-                <option value="1">Estudiante</option>
-                <option value="2">Instructor</option>
+                <option
+                  *ngFor="let perfil of perfilesUsuario"
+                  [value]="perfil.nombre"
+                >
+                  {{ perfil.nombre | titlecase }}
+                </option>
               </select>
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span *ngIf="isValidField('perfil')" class="form-text mb-2">
+                {{ getFieldError("perfil") }}
+              </span>
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
@@ -44,7 +57,9 @@
                 placeholder="Nombre completo"
                 formControlName="nombre"
               />
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span *ngIf="isValidField('nombre')" class="form-text mb-2">
+                {{ getFieldError("nombre") }}
+              </span>
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
@@ -55,7 +70,9 @@
                 placeholder="Apellido completo"
                 formControlName="apellido"
               />
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span *ngIf="isValidField('apellido')" class="form-text mb-2">
+                {{ getFieldError("apellido") }}
+              </span>
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
@@ -63,10 +80,13 @@
                 type="number"
                 class="form-control"
                 id="telefono"
-                placeholder="Telefono"
+                placeholder="Celular"
                 formControlName="telefono"
               />
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span *ngIf="isValidField('telefono')" class="form-text mb-2">
+                {{ getFieldError("telefono") }} <br />
+                Celular invalido.
+              </span>
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
@@ -77,7 +97,9 @@
                 placeholder="País"
                 formControlName="pais"
               />
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span *ngIf="isValidField('pais')" class="form-text mb-2">
+                {{ getFieldError("pais") }}
+              </span>
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
@@ -88,7 +110,11 @@
                 placeholder="Contraseña"
                 formControlName="clave"
               />
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span class="form-text mb-2" *ngIf="isValidField('clave')">
+                {{ getFieldError("clave") }}<br />
+                La contraseña debe tener al menos 1 mayúscula, 1 minúscula, 1
+                número y 1 carácter especial.
+              </span>
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
@@ -99,7 +125,9 @@
                 placeholder="Reingresa tu contraseña"
                 formControlName="clave2"
               />
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span class="form-text mb-2" *ngIf="isValidField('clave2')">
+                Las contraseñas deben de ser iguales
+              </span>
             </div>
           </div>
 
@@ -112,11 +140,11 @@
       </form>
       <div class="mt-3 text-center">
         <p class="text-white">o</p>
-        <p class="text-white" href="#">¿Ya tienes una cuenta?</p>
+        <p class="text-white">¿Ya tienes una cuenta?</p>
 
         <hr style="color: white" />
 
-        <a class="aLinks" href="#">Inicia sesión</a>
+        <a class="aLinks" routerLink="/login">Inicia sesión</a>
       </div>
     </div>
     <div class="col-md-1"></div>

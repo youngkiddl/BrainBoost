@@ -14,7 +14,8 @@
               formControlName="email"
               placeholder="Email"
             />
-            <span class="form-text mb-2"
+            <span
+              class="form-text mb-2"
               *ngIf="
             loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']
           "
@@ -31,7 +32,8 @@
               placeholder="Contraseña"
             />
 
-            <span class="form-text mb-2"
+            <span
+              class="form-text mb-2"
               *ngIf="
             loginForm.get('clave')?.touched && loginForm.get('clave')?.errors?.['required']
           "
@@ -53,7 +55,7 @@
         <hr style="color: white" />
 
         <p class="text-white">¿No tienes una cuenta?</p>
-        <a class="aLinks" href="#">Regístrate</a>
+        <a class="aLinks" routerLink="/registro">Regístrate</a>
       </div>
     </div>
     <div class="col-md-3 col-sm-2"></div>
