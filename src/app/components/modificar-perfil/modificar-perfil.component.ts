@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -23,7 +24,11 @@ export class ModificarPerfilComponent implements OnInit {
     telefono: [0, [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder, private toastr: ToastrService) {}
+  constructor(
+    private fb: FormBuilder,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getUsuario();
@@ -79,6 +84,7 @@ export class ModificarPerfilComponent implements OnInit {
     this.loading = true;
     this.usuarioService.modificarUsuario(usuario).subscribe(() => {
       this.loading = false;
+      this.router.navigate(['/perfil']);
       this.toastr.success('Se modificaron sus datos correctamente');
     });
   }

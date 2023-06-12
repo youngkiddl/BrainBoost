@@ -1,47 +1,120 @@
-<div class="text-white container" *ngIf="!loading">
-  <img
-    [src]="'http://localhost:3001/imagen/' + curso.foto"
-    [alt]="curso.nombre"
-  />
-  <h2>{{ curso.nombre }}</h2>
-  <h2>{{ curso.precio }}</h2>
+<div class="container text-white">
+  <div class="row my-4">
+    <div class="col-md-12">
+      <div>
+        <h2 class="text-center">Subir contenido al curso</h2>
+        <hr style="color: white" />
+        <div class="row fondo-curso py-4 mb-3">
+          <div class="col-md-12 text-center mb-3">
+            <img
+              [src]="'http://localhost:3001/imagen/' + curso.foto"
+              [alt]="curso.nombre"
+              class="foto-curso"
+            />
+          </div>
+          <div class="col-md-12 text-center">
+            <h3>{{ curso.nombre }}</h3>
+            <h3 class="text-warning">${{ curso.precio | number }}</h3>
+          </div>
+        </div>
 
-  <form [formGroup]="videoForm" (ngSubmit)="subirVideo()">
-    <span>Subir video</span>
-    <input
-      class="form-control"
-      type="file"
-      accept="video/"
-      (change)="cambiarVideo($event)"
-    />
+        <form [formGroup]="videoForm" (ngSubmit)="subirVideo()">
+          <div class="row fondo-curso p-4 mb-3">
+            <div class="col-md-12 text-center">
+              <h4>Información curso</h4>
+              <hr style="color: white" />
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-6 mb-3">
+              <h5>Subir video</h5>
+              <input
+                class="form-control"
+                type="file"
+                accept="video/"
+                (change)="cambiarVideo($event)"
+              />
+            </div>
+            <div class="col-md-3"></div>
 
-    <input
-      type="text"
-      class="form-control"
-      formControlName="titulo"
-      placeholder="inserta un titulo"
-    />
+            <div class="col-md-3"></div>
+            <div class="col-md-6 mb-3">
+              <h5>Titulo del video</h5>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="titulo"
+                placeholder="Inserta un titulo"
+              />
+            </div>
+            <div class="col-md-3"></div>
 
-    <input
-      type="text"
-      class="form-control"
-      formControlName="descripcion"
-      placeholder="inserta una descripcion"
-    />
+            <div class="col-md-3"></div>
+            <div class="col-md-6 mb-4">
+              <h5>Descripción del video</h5>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="descripcion"
+                placeholder="Inserta una descripcion"
+              />
+            </div>
+            <div class="col-md-3"></div>
 
-    <button type="submit">Agregar video</button>
-  </form>
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-success" type="submit">
+                  Agregar video
+                </button>
+              </div>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </form>
+      </div>
 
-  <div class="row">
-    <div class="col-4" *ngFor="let video of curso.videos">
-      <span>{{ video.titulo }}</span>
-      <p>{{ video.descripcion }}</p>
-      <video width="200" height="200" class="me-1" controls>
-        <source
-          [src]="'http://localhost:3001/imagen/' + video.video"
-          type="video/mp4"
-        />
-      </video>
+      <div class="col-md-12 containerTitulo my-4">
+        <div class="text-center py-3">
+          <a class="titulo">Videos en este curso</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div *ngFor="let video of curso.videos" class="col-md-4">
+          <div class="card mb-3">
+            <video controls>
+              <source
+                [src]="'http://localhost:3001/imagen/' + video.video"
+                type="video/mp4"
+              />
+            </video>
+
+            <!-- TITULO -->
+            <div class="text-start text-white p-2 m-2">
+              <h5>{{ video.titulo | titlecase }}</h5>
+              <p>{{ video.descripcion | titlecase }}</p>
+            </div>
+
+            <div class="row p-2">
+              <div class="col-md-12 mb-3">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-success" type="submit">
+                    Editar video
+                  </button>
+                </div>
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-danger" type="submit">
+                    Eliminar video
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

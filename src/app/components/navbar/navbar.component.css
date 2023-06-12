@@ -1,12 +1,28 @@
-.search {
-    width: 30vw;
-    margin: auto;
-}
-
 nav {
-    background-color: black;
+  background-color: black;
 }
 
 li {
-    margin-right: 30px;
+  margin-right: 30px;
+}
+
+.foto-usuario {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.search {
+  width: 30vw;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .search {
+    display: none;
+  }
 }

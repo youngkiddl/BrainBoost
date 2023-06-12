@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+<nav *ngIf="!loading" class="navbar navbar-expand-lg" data-bs-theme="dark">
   <div class="container-fluid py-1">
     <a class="navbar-brand" href="#">BrainBoost</a>
     <button
@@ -12,10 +12,10 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" aria-current="page" href="#">Home</a>
         </li>
 
         <!-- Categorias dropdown -->
@@ -29,26 +29,65 @@
           >
             Categorias
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-menu-dark">
             <li *ngFor="let categoria of categorias">
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item">
                 {{ categoria.nombre | titlecase }}
               </a>
             </li>
           </ul>
         </li>
-
-        <form class="d-flex" role="search">
-          <input
-            class="form-control search me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
+        <li class="nav-item search">
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar curso..."
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Buscar
+            </button>
+          </form>
+        </li>
+      </ul>
+      <ul class="navbar-nav text-center">
+        <li class="nav-item dropdown">
+          <span
+            class="dropdown-toggle nav-link"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Hola, {{ usuario.nombre | titlecase }}
+          </span>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li>
+              <a
+                class="dropdown-item"
+                style="cursor: pointer"
+                [routerLink]="['/perfil']"
+                >Mi perfil</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                style="cursor: pointer"
+                (click)="desconectarse()"
+                >Cerrar sesión</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav text-center mx-2">
+        <li class="nav-item">
+          <img
+            class="foto-usuario"
+            [routerLink]="['/usuario/mi-perfil']"
+            [src]="'http://localhost:3001/imagen/' + usuario.fotografia"
           />
-          <button class="btn btn-outline-success" type="submit">
-            <i class="bi bi-search"></i> Buscar
-          </button>
-        </form>
+        </li>
       </ul>
     </div>
   </div>
