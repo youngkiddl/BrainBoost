@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { CelularValidator } from 'src/app/validators/celular-validator.service.ts.service';
+import { CelularValidator } from 'src/app/validators/celular-validator.service';
 import { PasswordValidator } from 'src/app/validators/password-validator.service';
 import { ValidatorsService } from '../../services/validators.service';
 

@@ -22,4 +22,12 @@ export class UsuarioService {
   registrarUsuario(usuario: any): Observable<void> {
     return this.http.post<void>(`${this.miUrlBase}/registro`, usuario);
   }
+
+  cambiarClave(id: number, clave: string, claveNueva: string) {
+    return this.http.patch(`${this.miUrlBase}/cambiarClave`, {
+      id,
+      clave,
+      claveNueva,
+    });
+  }
 }

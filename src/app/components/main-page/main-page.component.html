@@ -59,13 +59,15 @@
   </div>
 
   <div class="row">
-    <div *ngFor="let curso of cursos" class="col-md-4">
-      <div class="card mb-3">
-        <img
-          class="img-curso"
-          [src]="'http://localhost:3001/imagen/' + curso.foto"
-          [alt]="curso.nombre"
-        />
+    <div *ngFor="let curso of cursos" class="col-md-4 mb-3">
+      <div class="cartaCurso mb-3 pb-1">
+        <div class="ratio-container">
+          <img
+            class="img-curso"
+            [src]="'http://localhost:3001/imagen/' + curso.foto"
+            [alt]="curso.nombre"
+          />
+        </div>
         <!-- TITULO -->
         <div class="text-start text-white m-2">
           <h5>{{ curso.nombre }}</h5>
@@ -73,8 +75,8 @@
 
         <div class="text-white mx-2">
           <small
-            >{{ curso.instructor.usuario.nombre }}
-            {{ curso.instructor.usuario.apellido }}</small
+            >{{ curso.instructor.usuario.nombre | titlecase }}
+            {{ curso.instructor.usuario.apellido | titlecase }}</small
           >
           <br />
           <small class="text-warning">

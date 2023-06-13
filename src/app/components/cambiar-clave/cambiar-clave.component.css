@@ -1,0 +1,13 @@
+.fondoCarta {
+  background-color: #141414;
+  padding: 60px;
+  border-radius: 2%;
+}
+
+.main-content {
+  min-height: calc(100% - 232px);
+}
+
+span {
+  color: #27c77c;
+}

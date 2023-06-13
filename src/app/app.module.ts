@@ -13,6 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
 import { ModificarPerfilComponent } from './components/modificar-perfil/modificar-perfil.component';
+import { CambiarClaveComponent } from './components/cambiar-clave/cambiar-clave.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ModificarPerfilComponent } from './components/modificar-perfil/modifica
     FooterComponent,
     MiPerfilComponent,
     ModificarPerfilComponent,
+    CambiarClaveComponent,
   ],
   imports: [
     BrowserModule,

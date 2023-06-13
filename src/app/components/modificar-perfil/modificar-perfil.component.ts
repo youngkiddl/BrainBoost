@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { ValidatorsService } from 'src/app/services/validators.service';
+import { CelularValidator } from 'src/app/validators/celular-validator.service';
 
 @Component({
   selector: 'app-modificar-perfil',
@@ -11,7 +13,11 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./modificar-perfil.component.css'],
 })
 export class ModificarPerfilComponent implements OnInit {
-  public usuarioService = inject(UsuarioService);
+  // servicios
+  private usuarioService = inject(UsuarioService);
+  private validatorsService = inject(ValidatorsService);
+
+  // variables
   fotoPrevisualizar!: any;
   fotoFile!: File;
   loading: boolean = true;
@@ -19,15 +25,29 @@ export class ModificarPerfilComponent implements OnInit {
   public formEditarUsuario: FormGroup = this.fb.group({
     nombre: ['', [Validators.required]],
     apellido: ['', [Validators.required]],
-    email: ['', [Validators.required]],
+    email: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern(this.validatorsService.emailPattern),
+      ],
+    ],
     pais: ['', [Validators.required]],
-    telefono: [0, [Validators.required]],
+    telefono: [
+      0,
+      [
+        Validators.required,
+        Validators.maxLength(9),
+        this.celularValidator.celularChilenoValidator(),
+      ],
+    ],
   });
 
   constructor(
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private celularValidator: CelularValidator
   ) {}
 
   ngOnInit(): void {
@@ -53,6 +73,14 @@ export class ModificarPerfilComponent implements OnInit {
       this.fotoPrevisualizar = `http://localhost:3001/imagen/${usuario.fotografia}`;
       this.loading = false;
     });
+  }
+
+  getFieldError(field: string) {
+    return this.validatorsService.getFieldError(this.formEditarUsuario, field);
+  }
+
+  isValidField(field: string) {
+    return this.validatorsService.isValidField(this.formEditarUsuario, field);
   }
 
   cambiarFoto(event: any): void {

@@ -35,7 +35,7 @@
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
-              <label for="nombre" class="form-label">Apellido</label>
+              <label for="apellido" class="form-label">Apellido</label>
               <input
                 type="text"
                 class="form-control"
@@ -47,7 +47,7 @@
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
-              <label for="nombre" class="form-label">Correo electronico</label>
+              <label for="email" class="form-label">Correo electronico</label>
 
               <input
                 type="email"
@@ -56,11 +56,13 @@
                 placeholder="Correo electronico"
                 formControlName="email"
               />
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span *ngIf="isValidField('email')" class="form-text mb-2">
+                Este campo es requerido
+              </span>
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
-              <label for="nombre" class="form-label">Telefono</label>
+              <label for="telefono" class="form-label">Telefono</label>
               <input
                 type="number"
                 class="form-control"
@@ -68,11 +70,13 @@
                 placeholder="Telefono"
                 formControlName="telefono"
               />
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span *ngIf="isValidField('telefono')" class="form-text mb-2">
+                Celular invalido {{ getFieldError("telefono") }} <br />
+              </span>
             </div>
 
             <div class="col-md-6 col-sm-12 form-group mb-3">
-              <label for="nombre" class="form-label">Pais</label>
+              <label for="pais" class="form-label">Pais</label>
               <input
                 type="text"
                 class="form-control"
@@ -80,13 +84,18 @@
                 placeholder="País"
                 formControlName="pais"
               />
-              <span class="form-text mb-2"> Este campo es requerido </span>
+              <span *ngIf="isValidField('pais')" class="form-text mb-2">
+                Este campo es requerido
+              </span>
             </div>
 
             <div class="row">
               <div class="col-md-6 mb-3">
                 <div class="d-grid gap-2">
-                  <button [routerLink]="['/main-page']" class="btn btn-outline-danger">
+                  <button
+                    [routerLink]="['/cambiar-clave']"
+                    class="btn btn-outline-danger"
+                  >
                     Cambiar contraseña
                   </button>
                 </div>

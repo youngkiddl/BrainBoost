@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
 import { ModificarPerfilComponent } from './components/modificar-perfil/modificar-perfil.component';
+import { CambiarClaveComponent } from './components/cambiar-clave/cambiar-clave.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'modificar-perfil',
     component: ModificarPerfilComponent,
+  },
+  {
+    path: 'cambiar-clave',
+    component: CambiarClaveComponent,
   },
 ];
 
