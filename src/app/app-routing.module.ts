@@ -26,6 +26,11 @@ const routes: Routes = [
       import('./cursos/cursos.module').then((m) => m.CursosModule),
   },
   {
+    path: 'mod',
+    loadChildren: () =>
+      import('./moderador/moderador.module').then((m) => m.ModeradorModule),
+  },
+  {
     path: 'perfil',
     component: MiPerfilComponent,
   },

@@ -13,8 +13,8 @@ export class CursoService {
 
   constructor(private http: HttpClient) {}
 
-  getCursos(): Observable<Curso[]> {
-    return this.http.get<Curso[]>(`${this.BASE_URL}/cursos`);
+  getCursos(estado: number): Observable<Curso[]> {
+    return this.http.get<Curso[]>(`${this.BASE_URL}/cursos/${estado}`);
   }
 
   getCursoInstructor(id: number): Observable<CursoInstructor[]> {

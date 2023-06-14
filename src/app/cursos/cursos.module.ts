@@ -11,7 +11,13 @@ import { CursosInstructorComponent } from './components/cursos-instructor/cursos
 import { AgregarVideoComponent } from './components/agregar-video/agregar-video.component';
 
 @NgModule({
-  declarations: [CursosComponent, CursoComponent, CrearCursoComponent, CursosInstructorComponent, AgregarVideoComponent],
+  declarations: [
+    CursosComponent,
+    CursoComponent,
+    CrearCursoComponent,
+    CursosInstructorComponent,
+    AgregarVideoComponent,
+  ],
   imports: [
     CommonModule,
     CursosRoutingModule,

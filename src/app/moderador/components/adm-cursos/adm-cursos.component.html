@@ -1,0 +1,37 @@
+<div class="container">
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Titulo</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Fecha creacion</th>
+        <th scope="col">Instructor</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-white" *ngFor="let curso of cursos">
+        <th scope="row">{{ curso.nombre }}</th>
+        <td>{{ curso.descripcion }}</td>
+        <td>{{ curso.precio | currency : "CLP" }}</td>
+        <td>{{ curso.fecha_creacion | date }}</td>
+        <td>
+          {{ curso.instructor.usuario.nombre }}
+          {{ curso.instructor.usuario.apellido }}
+        </td>
+        <td>
+          <button (click)="aprobarCurso(curso.id)" class="btn btn-light mx-1">
+            <i class="bi bi-check-circle"></i>
+          </button>
+          <button class="btn btn-light mx-1">
+            <i class="bi bi-x-circle"></i>
+          </button>
+          <button class="btn btn-light">
+            <i class="bi bi-info-circle mx-1"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

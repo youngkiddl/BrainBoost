@@ -19,7 +19,7 @@ export class CursosComponent implements OnInit {
 
   getCursos() {
     this.loading = true;
-    this.cursosService.getCursos().subscribe((data) => {
+    this.cursosService.getCursos(1).subscribe((data) => {
       this.cursos = data;
       this.loading = false;
       console.log(this.cursos);
