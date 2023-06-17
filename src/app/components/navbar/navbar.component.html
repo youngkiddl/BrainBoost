@@ -15,7 +15,13 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Home</a>
+          <a class="nav-link" aria-current="page" routerLink="/">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/cursos"
+            >Cursos</a
+          >
         </li>
 
         <!-- Categorias dropdown -->
@@ -37,6 +43,27 @@
             </li>
           </ul>
         </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Administracion
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li>
+              <a class="dropdown-item"> Usuarios </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/mod/cursos"> Cursos </a>
+            </li>
+          </ul>
+        </li>
+
         <li class="nav-item search">
           <form class="d-flex" role="search">
             <input

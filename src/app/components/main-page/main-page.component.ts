@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Curso } from 'src/app/cursos/interfaces/curso';
+import { Cursos } from 'src/app/cursos/interfaces/cursos';
 import { CursoService } from 'src/app/cursos/services/curso.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { CursoService } from 'src/app/cursos/services/curso.service';
 })
 export class MainPageComponent implements OnInit {
   public cursoService = inject(CursoService);
-  public cursos: Curso[] = [];
+  public cursos: Cursos[] = [];
   loading: boolean = true;
 
   ngOnInit(): void {

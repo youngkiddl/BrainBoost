@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CursoService } from '../../services/curso.service';
 import { Curso } from '../../interfaces/curso';
+import { Cursos } from '../../interfaces/cursos';
 
 @Component({
   selector: 'app-cursos',
@@ -8,7 +9,7 @@ import { Curso } from '../../interfaces/curso';
   styleUrls: ['./cursos.component.css'],
 })
 export class CursosComponent implements OnInit {
-  cursos: Curso[] = [];
+  cursos: Cursos[] = [];
   loading: boolean = true;
 
   constructor(private cursosService: CursoService) {}

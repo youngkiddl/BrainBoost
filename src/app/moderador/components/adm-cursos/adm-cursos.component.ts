@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Curso } from 'src/app/cursos/interfaces/curso';
+import { Curso, CursoInfo } from 'src/app/cursos/interfaces/curso';
 import { CursoService } from 'src/app/cursos/services/curso.service';
 import { ModService } from '../../services/mod.service';
 import { ToastrService } from 'ngx-toastr';
+import { Cursos } from 'src/app/cursos/interfaces/cursos';
 
 @Component({
   selector: 'app-adm-cursos',
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./adm-cursos.component.css'],
 })
 export class AdmCursosComponent implements OnInit {
-  cursos: Curso[] = [];
+  cursos: Cursos[] = [];
   constructor(
     private cursosService: CursoService,
     private modService: ModService,

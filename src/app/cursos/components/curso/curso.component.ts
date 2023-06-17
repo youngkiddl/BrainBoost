@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CursoService } from '../../services/curso.service';
 import { ActivatedRoute } from '@angular/router';
-import { Curso } from '../../interfaces/curso';
+import { Curso, CursoInfo, Valoracion } from '../../interfaces/curso';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -11,13 +11,19 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CursoComponent implements OnInit {
   id: number;
-  curso!: Curso;
+  curso!: CursoInfo;
   loading: boolean = true;
   videoFile!: File;
+
+  valoraciones: Valoracion[] = [];
 
   videoForm: FormGroup = this.fb.group({
     titulo: '',
     descripcion: '',
+  });
+
+  valoracionForm: FormGroup = this.fb.group({
+    comentario: '',
   });
   constructor(
     private cursoService: CursoService,
@@ -42,10 +48,25 @@ export class CursoComponent implements OnInit {
   getCurso() {
     this.loading = true;
     this.cursoService.getCurso(this.id).subscribe((data) => {
-      this.curso = data;
+      this.curso = data.curso;
+      this.valoraciones = data.valoraciones;
       this.loading = false;
     });
   }
+
+  stars: number[] = [0, 1, 2, 3, 4]; // Array para representar las estrellas
+  selectedStarIndex: number = -1; // Índice de la estrella seleccionada (-1 para ninguna estrella seleccionada)
+
+  rateCourse(index: number): void {
+    if (index === this.selectedStarIndex) {
+      // Si se hace clic en la estrella seleccionada, se deselecciona
+      this.selectedStarIndex = -1;
+    } else {
+      this.selectedStarIndex = index;
+    }
+  }
+
+  postValoracion() {}
 
   subirVideo() {
     const nuevoVideo = new FormData();

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
 import { Usuario } from '../interfaces/usuario';
+import { PerfilInstructor } from '../interfaces/perfilInstructor';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,12 @@ export class UsuarioService {
 
   getUsuario(id: number): Observable<Usuario> {
     return this.http.get<Usuario>(`${this.miUrlBase}/usuario/${id}`);
+  }
+
+  getInstructor(id: number): Observable<PerfilInstructor> {
+    return this.http.get<PerfilInstructor>(
+      `${this.miUrlBase}/instructor/${id}`
+    );
   }
 
   modificarUsuario(usuario: any): Observable<void> {

@@ -1,0 +1,44 @@
+<div class="container" *ngIf="!loading">
+  <div class="row">
+    <div class="col-5 text-white info">
+      <img
+        [src]="'http://localhost:3001/imagen/' + instructor.usuario.fotografia"
+        class="circular"
+        alt=""
+      />
+      <h5>
+        Nombre: {{ instructor.usuario.nombre }}
+        {{ instructor.usuario.apellido }}
+      </h5>
+      <h5>Biografia: {{ instructor.biografia }}</h5>
+      <h5>
+        Calificacion: {{ instructor.calificacion }} &star; &star; &star; &star;
+        &star;
+      </h5>
+    </div>
+    <div class="col-7">
+      <div class="row">
+        <h5 class="text-center text-white">Cursos</h5>
+        <div *ngFor="let curso of instructor.cursos" class="col-md-4">
+          <div class="card mb-3" routerLink="/cursos/curso/{{ curso.id }}">
+            <img
+              class="img-curso"
+              [src]="'http://localhost:3001/imagen/' + curso.foto"
+              [alt]="curso.nombre"
+            />
+            <!-- TITULO -->
+            <div class="text-start text-white m-2">
+              <h5>{{ curso.nombre }}</h5>
+            </div>
+
+            <div class="text-white mx-2">
+              <h5 class="fw-bold mt-2">
+                {{ curso.precio | currency : "CLP" : "symbol" : "1.0" }}
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

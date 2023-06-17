@@ -115,6 +115,53 @@
           </div>
         </div>
       </div>
+
+      <form [formGroup]="valoracionForm">
+        <div class="row fondo-curso py-4 mb-3">
+          <div class="col-md-12 text-center mb-3">
+            Puntuacion:
+            <div class="mb-3">
+              <span
+                class="star"
+                (click)="rateCourse(index)"
+                [ngClass]="{
+                  selected: index < selectedStarIndex,
+                  gold: index <= selectedStarIndex
+                }"
+                *ngFor="let star of stars; let index = index"
+                >&#9733;</span
+              >
+            </div>
+            <p>
+              Puntuación: <span>{{ selectedStarIndex + 1 }}</span>
+            </p>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Valoracion del curso</label
+              >
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                placeholder="Escribe una reseña del curso..."
+                formControlName="comentario"
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+          <div class="col-md-12 text-center">
+            <h3 class="text-white">Valoraciones</h3>
+
+            <ng-container *ngFor="let valoracion of valoraciones">
+              <span>
+                {{ valoracion.usuario.nombre }}
+                {{ valoracion.usuario.apellido }} </span
+              ><br />
+              <span>Puntuacion: {{ valoracion.puntuacion }}</span>
+              <p>Comentario: {{ valoracion.comentario }}</p>
+            </ng-container>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

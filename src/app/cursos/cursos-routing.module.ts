@@ -4,6 +4,7 @@ import { CursosComponent } from './components/cursos/cursos.component';
 import { CursoComponent } from './components/curso/curso.component';
 import { CrearCursoComponent } from './components/crear-curso/crear-curso.component';
 import { CursosInstructorComponent } from './components/cursos-instructor/cursos-instructor.component';
+import { CursosCategoriaComponent } from './components/cursos-categoria/cursos-categoria.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'instructor/:id',
     component: CursosInstructorComponent,
+  },
+  {
+    path: 'categoria/:id',
+    component: CursosCategoriaComponent,
   },
   {
     path: 'crear',

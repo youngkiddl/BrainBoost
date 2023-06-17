@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { Curso } from '../interfaces/curso';
 import { CursoInstructor } from '../interfaces/cursoInstructor';
+import { CursoCategoria } from '../interfaces/cursoCategoria';
+import { Cursos } from '../interfaces/cursos';
 
 @Injectable({
   providedIn: 'root',
@@ -13,12 +15,15 @@ export class CursoService {
 
   constructor(private http: HttpClient) {}
 
-  getCursos(estado: number): Observable<Curso[]> {
-    return this.http.get<Curso[]>(`${this.BASE_URL}/cursos/${estado}`);
+  getCursos(estado: number): Observable<Cursos[]> {
+    return this.http.get<Cursos[]>(`${this.BASE_URL}/cursos/${estado}`);
   }
 
   getCursoInstructor(id: number): Observable<CursoInstructor[]> {
     return this.http.get<CursoInstructor[]>(`${this.BASE_URL}/cursos/${id}`);
+  }
+  getCursosCategoria(id: number): Observable<CursoCategoria[]> {
+    return this.http.get<CursoCategoria[]>(`${this.BASE_URL}/cursos/cat/${id}`);
   }
 
   getCurso(id: number): Observable<Curso> {

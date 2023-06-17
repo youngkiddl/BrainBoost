@@ -1,0 +1,16 @@
+.circular {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+}
+
+.info {
+  background: #1d1d1d;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.card {
+  background-color: #141414;
+  cursor: pointer;
+}
