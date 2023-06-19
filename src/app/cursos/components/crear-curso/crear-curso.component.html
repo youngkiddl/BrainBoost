@@ -1,14 +1,11 @@
-<div class="container mt-4">
-  <div class="row justify-content-center">
-    <div class="col-md-12 text-center text-white">
-      <h2>Crear curso</h2>
-    </div>
-    <div class="col-md-6">
+<div class="container text-white mt-4">
+  <div class="row p-3 justify-content-center">
+    <div class="col-md-7">
+      <h2 class="text-center">Crear curso</h2>
+      <hr style="color: white;">
       <form [formGroup]="crearCursoForm" (ngSubmit)="postCurso()">
         <div>
-          <div
-            class="d-flex flex-column align-items-center text-center p-3 py-5"
-          >
+          <div class="text-center mb-3">
             <img
               class="circular"
               [src]="fotoPrevisualizar || '../../../assets/foto.png'"
@@ -23,7 +20,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
           <label class="text-white" for="nombre">Nombre:</label>
           <input
             type="text"
@@ -34,7 +31,7 @@
           />
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
           <label class="text-white" for="categoria">Categoria:</label>
           <select class="form-select" formControlName="categoria">
             <option value="0">Seleccione una opción</option>
@@ -44,7 +41,7 @@
           </select>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
           <label class="text-white" for="precio">Precio:</label>
           <input
             type="number"
@@ -55,23 +52,24 @@
           />
         </div>
 
-        <div class="form-group">
-          <label class="text-white" for="descripcion">Descripcion:</label>
+        <div class="form-group mb-3">
+          <label class="text-white" for="descripcion">Descripción:</label>
           <textarea
             name="descripcion"
             id="descripcion"
             class="form-control"
+            placeholder="Ingrese una descripción adecuada a su curso"
             formControlName="descripcion"
           >
           </textarea>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
           <div class="col-md-6 d-grid gap-2 mt-3 mb-3">
-            <button class="btn btn-dark button-back">Volver</button>
+            <button class="btn btn-outline-danger">Volver</button>
           </div>
 
           <div class="col-md-6 d-grid gap-2 mt-3 mb-3">
-            <button type="submit" class="btn btn-dark button-edit">
+            <button type="submit" class="btn btn-outline-success">
               Crear
             </button>
           </div>

@@ -7,6 +7,23 @@
   cursor: pointer;
 }
 
-hr {
-  color: white;
+.containerTitulo {
+  background-color: #0e0d0d;
 }
+
+.titulo {
+  color: white;
+  font-size: 1.7em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+.titulo:hover {
+  color: #198754;
+}
+
+.main-content {
+  min-height: calc(100% - 208px);
+}
+

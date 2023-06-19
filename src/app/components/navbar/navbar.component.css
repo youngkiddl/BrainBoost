@@ -3,7 +3,8 @@ nav {
 }
 
 li {
-  margin-right: 30px;
+  margin-right: 15px;
+  cursor: pointer;
 }
 
 .foto-usuario {
@@ -17,11 +18,8 @@ li {
   width: 30vw;
 }
 
-.dropdown-toggle {
-  cursor: pointer;
-}
 
-@media (max-width: 991px) {
+@media (max-width: 1300px) {
   .search {
     display: none;
   }

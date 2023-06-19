@@ -1,31 +1,10 @@
 .container {
-  background-color: #242424;
+  background-color: #141414;
 }
 
 .form-control:focus {
   box-shadow: none;
   border-color: #a3815a;
-}
-
-.button-back {
-  font-size: 20px;
-  letter-spacing: 1px;
-  font-weight: 500;
-  background-color: rgb(180, 0, 0);
-}
-
-.button-back:hover {
-  background-color: #f13a3a;
-}
-.button-edit {
-  font-size: 20px;
-  letter-spacing: 1px;
-  font-weight: 500;
-  background-color: rgb(0, 180, 0);
-}
-
-.button-edit:hover {
-  background-color: rgb(9, 47, 105);
 }
 
 .labels {
@@ -34,6 +13,10 @@
 }
 
 .circular {
-  height: 20rem;
-  width: 20rem;
+  width: 10rem;
+  height: auto;
+}
+
+textarea {
+  resize: none;
 }

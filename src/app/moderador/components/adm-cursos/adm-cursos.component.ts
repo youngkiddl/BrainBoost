@@ -17,6 +17,7 @@ export class AdmCursosComponent implements OnInit {
     private modService: ModService,
     private toastr: ToastrService
   ) {}
+  
   ngOnInit(): void {
     this.getCursos();
   }

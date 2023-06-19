@@ -1,0 +1,13 @@
+.fondoCarta {
+  background-color: #141414;
+}
+
+.main-content {
+  min-height: calc(100% - 208px);
+}
+
+@media (max-width: 767px) {
+  .botonesLista {
+    margin-bottom: 10px;
+  }
+}

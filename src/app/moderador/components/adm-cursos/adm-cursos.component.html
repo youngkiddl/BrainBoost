@@ -1,37 +1,51 @@
-<div class="container">
-  <table class="table">
-    <thead class="table-light">
-      <tr>
-        <th scope="col">Titulo</th>
-        <th scope="col">Descripcion</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Fecha creacion</th>
-        <th scope="col">Instructor</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="text-white" *ngFor="let curso of cursos">
-        <th scope="row">{{ curso.nombre }}</th>
-        <td>{{ curso.descripcion }}</td>
-        <td>{{ curso.precio | currency : "CLP" }}</td>
-        <td>{{ curso.fecha_creacion | date }}</td>
-        <td>
-          {{ curso.instructor.usuario.nombre }}
-          {{ curso.instructor.usuario.apellido }}
-        </td>
-        <td>
-          <button (click)="aprobarCurso(curso.id)" class="btn btn-light mx-1">
-            <i class="bi bi-check-circle"></i>
-          </button>
-          <button class="btn btn-light mx-1">
-            <i class="bi bi-x-circle"></i>
-          </button>
-          <button class="btn btn-light">
-            <i class="bi bi-info-circle mx-1"></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container main-content text-white my-4">
+  <div class="row">
+    <div class="col-md-12 fondoCarta py-4">
+      <div class="mb-4">
+        <h2 class="text-center">Administración cursos</h2>
+        <hr style="color: white" />
+      </div>
+      <div class="table-responsive">
+        <table
+          class="table table-dark table-striped table-hover table-bordered align-middle"
+        >
+          <thead class="align-middle">
+            <tr>
+              <th scope="col">Titulo curso</th>
+              <th scope="col">Instructor</th>
+              <th style="width: 14%" scope="col">Precio</th>
+              <th style="width: 14%" scope="col">Fecha creación</th>
+              <th class="text-center" scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let curso of cursos">
+              <th scope="row">{{ curso.nombre | titlecase }}</th>
+              <td>
+                {{ curso.instructor.usuario.nombre | titlecase }}
+                {{ curso.instructor.usuario.apellido | titlecase }}
+              </td>
+              <td>{{ curso.precio | currency : "CLP" }}</td>
+              <td>{{ curso.fecha_creacion | date }}</td>
+
+              <td class="text-md-center">
+                <button
+                  (click)="aprobarCurso(curso.id)"
+                  class="btn btn-outline-success botonesLista mx-1"
+                >
+                  <i class="bi bi-check-circle"></i>
+                </button>
+                <button class="btn btn-outline-danger botonesLista mx-1">
+                  <i class="bi bi-x-circle"></i>
+                </button>
+                <button class="btn btn-outline-info botonesLista mx-1">
+                  <i class="bi bi-info-circle"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
