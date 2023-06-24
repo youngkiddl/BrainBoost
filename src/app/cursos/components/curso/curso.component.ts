@@ -25,6 +25,7 @@ export class CursoComponent implements OnInit {
   valoracionForm: FormGroup = this.fb.group({
     comentario: '',
   });
+
   constructor(
     private cursoService: CursoService,
     private aRouter: ActivatedRoute,

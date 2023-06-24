@@ -12,12 +12,14 @@ import { Cursos } from 'src/app/cursos/interfaces/cursos';
 })
 export class AdmCursosComponent implements OnInit {
   cursos: Cursos[] = [];
+  curso!: CursoInfo;
+  loading: boolean = true;
   constructor(
     private cursosService: CursoService,
     private modService: ModService,
     private toastr: ToastrService
   ) {}
-  
+
   ngOnInit(): void {
     this.getCursos();
   }

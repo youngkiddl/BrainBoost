@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriaService } from 'src/app/services/categoria.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -9,7 +9,7 @@ import { Categoria } from '../../cursos/interfaces/categoria';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   // servicios
   private categoriaService = inject(CategoriaService);
   private usuarioService = inject(UsuarioService);
@@ -20,6 +20,9 @@ export class NavbarComponent implements OnInit {
   public categorias: Categoria[] = [];
 
   constructor(private router: Router) {}
+  ngOnDestroy(): void {
+    location.reload();
+  }
 
   ngOnInit(): void {
     this.getUsuario();

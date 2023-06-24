@@ -1,0 +1,71 @@
+<div class="container text-white my-5" *ngIf="!loading">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 text-center mb-3">
+      <button class="btn btn-danger fw-semibold" routerLink="/mod/cursos">
+        <i class="bi bi-arrow-left-short"></i> Volver
+      </button>
+    </div>
+    <div class="col-md-3"></div>
+
+    <div class="col-md-12 fondoCarta">
+      <div class="row my-4 p-3">
+        <div class="col-md-12 text-center mb-3">
+          <img
+            [src]="'http://localhost:3001/imagen/' + curso.foto"
+            [alt]="curso.nombre"
+            class="foto-curso"
+          />
+        </div>
+        <div class="col-md-12">
+          <div class="bodyCarta">
+            <h3 class="text-center">
+              {{ curso.nombre }}
+            </h3>
+
+            <hr />
+            <p>Descripcion: {{ curso.descripcion }}</p>
+            <p>Fecha de creacion: {{ curso.fecha_creacion | date }}</p>
+            <p>
+              Instructor:
+              <a routerLink="/instructor/{{ curso.instructor.id }}"
+                >{{ curso.instructor.usuario.nombre }}
+                {{ curso.instructor.usuario.apellido }}</a
+              >
+            </p>
+            <p>Precio: {{ curso.precio | currency : "CLP" }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 containerTitulo my-4">
+      <div class="text-center py-3">
+        <a class="titulo">Videos en este curso</a>
+      </div>
+
+      <p class="text-center text-warning" *ngIf="curso.videos.length == 0">
+        No hay videos en este curso
+      </p>
+    </div>
+
+    <div class="row" *ngIf="curso.videos.length > 0">
+      <div class="col-md-4" *ngFor="let video of curso.videos">
+        <div class="card mb-3">
+          <video controls>
+            <source
+              [src]="'http://localhost:3001/imagen/' + video.video"
+              type="video/mp4"
+            />
+          </video>
+
+          <!-- TITULO -->
+          <div class="text-start text-white p-2 m-2">
+            <h5>{{ video.titulo | titlecase }}</h5>
+            <p>{{ video.descripcion | titlecase }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
