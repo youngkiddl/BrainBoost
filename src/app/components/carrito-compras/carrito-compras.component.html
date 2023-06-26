@@ -1,0 +1,14 @@
+<div class="container">
+  <ul *ngFor="let curso of cursos; let i = index" class="text-white">
+    <li>
+      {{ curso.nombre }}
+    </li>
+    <li>
+      {{ curso.precio }}
+    </li>
+
+    <button class="btn btn-danger" (click)="onClick(i)">Borrar</button>
+  </ul>
+
+  <h4 class="text-white">Total: {{ total | currency : "CLP" }}</h4>
+</div>

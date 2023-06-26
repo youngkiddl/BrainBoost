@@ -15,6 +15,7 @@ import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
 import { ModificarPerfilComponent } from './components/modificar-perfil/modificar-perfil.component';
 import { CambiarClaveComponent } from './components/cambiar-clave/cambiar-clave.component';
 import { PerfilInstructorComponent } from './components/perfil-instructor/perfil-instructor.component';
+import { CarritoComprasComponent } from './components/carrito-compras/carrito-compras.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PerfilInstructorComponent } from './components/perfil-instructor/perfil
     ModificarPerfilComponent,
     CambiarClaveComponent,
     PerfilInstructorComponent,
+    CarritoComprasComponent,
   ],
   imports: [
     BrowserModule,

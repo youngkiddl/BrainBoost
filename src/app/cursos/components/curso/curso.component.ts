@@ -3,6 +3,7 @@ import { CursoService } from '../../services/curso.service';
 import { ActivatedRoute } from '@angular/router';
 import { Curso, CursoInfo, Valoracion } from '../../interfaces/curso';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-curso',
@@ -29,7 +30,8 @@ export class CursoComponent implements OnInit {
   constructor(
     private cursoService: CursoService,
     private aRouter: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private carritoService: CarritoService
   ) {
     this.id = Number(this.aRouter.snapshot.paramMap.get('id'));
   }
@@ -80,5 +82,9 @@ export class CursoComponent implements OnInit {
       this.videoForm.reset();
       this.getCurso();
     });
+  }
+
+  onClick(curso: CursoInfo) {
+    this.carritoService.addNewCurso(curso);
   }
 }

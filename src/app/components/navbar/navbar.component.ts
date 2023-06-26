@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CategoriaService } from 'src/app/services/categoria.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Categoria } from '../../cursos/interfaces/categoria';
+import { CarritoService } from 'src/app/cursos/services/carrito.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +20,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public usuario!: any;
   public categorias: Categoria[] = [];
 
-  constructor(private router: Router) {}
+  carrito: number = 0;
+
+  constructor(private router: Router, private carritoService: CarritoService) {}
   ngOnDestroy(): void {
     location.reload();
   }
@@ -28,6 +31,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.getUsuario();
     this.categoriaService.getCategorias().subscribe((categorias) => {
       this.categorias = categorias;
+    });
+    this.carritoService.cursos.subscribe((data) => {
+      this.carrito = data.length;
+      console.log(this.carrito);
     });
   }
 
