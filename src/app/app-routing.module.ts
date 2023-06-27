@@ -8,6 +8,7 @@ import { ModificarPerfilComponent } from './components/modificar-perfil/modifica
 import { CambiarClaveComponent } from './components/cambiar-clave/cambiar-clave.component';
 import { PerfilInstructorComponent } from './components/perfil-instructor/perfil-instructor.component';
 import { CarritoComprasComponent } from './components/carrito-compras/carrito-compras.component';
+import { MiPerfilCursosComponent } from './components/mi-perfil-cursos/mi-perfil-cursos.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'perfil',
     component: MiPerfilComponent,
+  },
+  {
+    path: 'perfil-cursos',
+    component: MiPerfilCursosComponent,
   },
   {
     path: 'instructor/:id',

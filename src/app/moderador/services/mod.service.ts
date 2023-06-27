@@ -14,4 +14,5 @@ export class ModService {
   aprobarCurso(id: number) {
     return this.http.post(`${this.BASE_URL}/curso-aprobar`, { id });
   }
+
 }

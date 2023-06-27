@@ -20,8 +20,11 @@ export class CursoService {
   }
 
   getCursoInstructor(id: number): Observable<CursoInstructor[]> {
-    return this.http.get<CursoInstructor[]>(`${this.BASE_URL}/cursos/${id}`);
+    return this.http.get<CursoInstructor[]>(
+      `${this.BASE_URL}/cursos/instructor/${id}`
+    );
   }
+
   getCursosCategoria(id: number): Observable<CursoCategoria[]> {
     return this.http.get<CursoCategoria[]>(`${this.BASE_URL}/cursos/cat/${id}`);
   }
@@ -36,5 +39,15 @@ export class CursoService {
 
   postVideo(nuevoVideo: any, id: number) {
     return this.http.post(`${this.BASE_URL}/video/${id}`, nuevoVideo);
+  }
+
+  cambiarEstadoCurso(id: number) {
+    return this.http.post(`${this.BASE_URL}/curso-cambiar-estado`, { id });
+  }
+
+  getMisCursosInstructor(id: number): Observable<CursoInstructor[]> {
+    return this.http.get<CursoInstructor[]>(
+      `${this.BASE_URL}/curso/mis-cursos/${id}`
+    );
   }
 }

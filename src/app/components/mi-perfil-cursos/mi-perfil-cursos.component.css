@@ -1,0 +1,27 @@
+.img-curso {
+  height: 25vh;
+}
+
+.card {
+  background-color: #141414;
+}
+
+.containerTitulo {
+  background-color: #0e0d0d;
+}
+
+.titulo {
+  color: white;
+  font-size: 1.7em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+.titulo:hover {
+  color: #198754;
+}
+
+hr {
+  color: white;
+}

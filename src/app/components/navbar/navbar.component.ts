@@ -39,16 +39,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   getUsuario() {
-    const usuarioString = localStorage.getItem('usuario');
-    const usuario = usuarioString ? JSON.parse(usuarioString) : null;
-
-    const usuarioId = usuario.usuario.id;
+    const storedDataString = localStorage.getItem('usuario');
 
     this.loading = true;
-    this.usuarioService.getUsuario(usuarioId).subscribe((usuario) => {
-      this.usuario = usuario;
-      this.loading = false;
-    });
+    let storedData;
+    if (storedDataString) {
+      storedData = JSON.parse(storedDataString);
+    }
+
+    this.usuario = {
+      id: storedData.usuario.id,
+      nombre: storedData.usuario.nombre,
+      fotografia: storedData.usuario.fotografia,
+    };
+    this.loading = false;
   }
 
   desconectarse() {
