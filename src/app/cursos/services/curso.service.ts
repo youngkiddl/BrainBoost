@@ -50,4 +50,10 @@ export class CursoService {
       `${this.BASE_URL}/curso/mis-cursos/${id}`
     );
   }
+
+  esEstudiante(usuarioId: number, cursoId: number): Observable<any> {
+    return this.http.get<any>(
+      `${this.BASE_URL}/es-estudiante/${usuarioId}-${cursoId}`
+    );
+  }
 }

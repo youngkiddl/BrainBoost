@@ -15,16 +15,11 @@ export class CursoComponent implements OnInit {
   curso!: CursoInfo;
   loading: boolean = true;
   videoFile!: File;
-
   valoraciones: Valoracion[] = [];
 
   videoForm: FormGroup = this.fb.group({
     titulo: '',
     descripcion: '',
-  });
-
-  valoracionForm: FormGroup = this.fb.group({
-    comentario: '',
   });
 
   constructor(
@@ -53,20 +48,9 @@ export class CursoComponent implements OnInit {
     this.cursoService.getCurso(this.id).subscribe((data) => {
       this.curso = data.curso;
       this.valoraciones = data.valoraciones;
+
       this.loading = false;
     });
-  }
-
-  stars: number[] = [0, 1, 2, 3, 4]; // Array para representar las estrellas
-  selectedStarIndex: number = -1; // Índice de la estrella seleccionada (-1 para ninguna estrella seleccionada)
-
-  rateCourse(index: number): void {
-    if (index === this.selectedStarIndex) {
-      // Si se hace clic en la estrella seleccionada, se deselecciona
-      this.selectedStarIndex = -1;
-    } else {
-      this.selectedStarIndex = index;
-    }
   }
 
   postValoracion() {}
@@ -82,9 +66,5 @@ export class CursoComponent implements OnInit {
       this.videoForm.reset();
       this.getCurso();
     });
-  }
-
-  onClick(curso: CursoInfo) {
-    this.carritoService.addNewCurso(curso);
   }
 }

@@ -6,7 +6,7 @@
       </div>
     </div>
     <div *ngFor="let curso of cursos" class="col-md-4">
-      <div class="card mb-3" routerLink="/cursos/curso/{{ curso.id }}">
+      <div class="card mb-3" routerLink="/cursos/info-curso/{{ curso.id }}">
         <img
           class="img-curso"
           [src]="'http://localhost:3001/imagen/' + curso.foto"

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs';
 import { CursoInfo } from 'src/app/cursos/interfaces/curso';
 import { CarritoService } from 'src/app/cursos/services/carrito.service';
@@ -12,7 +15,11 @@ export class CarritoComprasComponent implements OnInit {
   cursos: CursoInfo[] = [];
   total: number = 0;
 
-  constructor(private carritoService: CarritoService) {}
+  constructor(
+    private carritoService: CarritoService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.carritoService.cursos.subscribe((data) => {
@@ -35,5 +42,24 @@ export class CarritoComprasComponent implements OnInit {
       .subscribe((val) => {
         this.total = val;
       });
+  }
+
+  comprar() {
+    const usuarioString = localStorage.getItem('usuario');
+    const usuario = usuarioString ? JSON.parse(usuarioString) : null;
+
+    const usuarioId = usuario.usuario.id;
+
+    const data = {
+      cursos: this.cursos,
+      total: this.total,
+      usuarioId,
+    };
+
+    this.carritoService.comprar(data).subscribe(() => {
+      this.toastr.success('Compra realizada con exito');
+      this.carritoService.vaciarCarrito();
+      this.router.navigate(['/']);
+    });
   }
 }

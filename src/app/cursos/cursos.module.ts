@@ -8,8 +8,9 @@ import { CursoComponent } from './components/curso/curso.component';
 import { CrearCursoComponent } from './components/crear-curso/crear-curso.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CursosInstructorComponent } from './components/cursos-instructor/cursos-instructor.component';
-import { AgregarVideoComponent } from './components/agregar-video/agregar-video.component';
+
 import { CursosCategoriaComponent } from './components/cursos-categoria/cursos-categoria.component';
+import { InfoCursoComponent } from './components/info-curso/info-curso.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { CursosCategoriaComponent } from './components/cursos-categoria/cursos-c
     CursoComponent,
     CrearCursoComponent,
     CursosInstructorComponent,
-    AgregarVideoComponent,
+
     CursosCategoriaComponent,
+      InfoCursoComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,107 @@
+<div class="container text-white" *ngIf="!loading">
+  <div class="row my-4">
+    <div class="col-md-12">
+      <div>
+        <h2 class="text-center">Informacion del curso</h2>
+        <hr style="color: white" />
+        <div class="row fondo-curso py-4 mb-3">
+          <div class="col-md-12 text-center mb-3">
+            <img
+              [src]="'http://localhost:3001/imagen/' + curso.foto"
+              [alt]="curso.nombre"
+              class="foto-curso"
+            />
+          </div>
+          <div class="col-md-12 text-center">
+            <h3>{{ curso.nombre }}</h3>
+            <h3 *ngIf="!visible" class="text-warning">
+              ${{ curso.precio | number }}
+            </h3>
+          </div>
+
+          <div class="col-md-12 text-center" *ngIf="!visible">
+            <button class="btn btn-dark" (click)="onClick(curso)">
+              Comprar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 containerTitulo my-4">
+        <div class="text-center py-3">
+          <a class="titulo">Videos en este curso</a>
+        </div>
+      </div>
+
+      <ng-container *ngIf="!visible"
+        >Debes comprar este curso para ver su contenido</ng-container
+      >
+
+      <div class="row" *ngIf="visible">
+        <div *ngFor="let video of curso.videos" class="col-md-4">
+          <div class="card mb-3">
+            <video controls>
+              <source
+                [src]="'http://localhost:3001/imagen/' + video.video"
+                type="video/mp4"
+              />
+            </video>
+
+            <!-- TITULO -->
+            <div class="text-start text-white p-2 m-2">
+              <h5>{{ video.titulo | titlecase }}</h5>
+              <p>{{ video.descripcion | titlecase }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form [formGroup]="valoracionForm">
+        <div class="row fondo-curso py-4 mb-3">
+          <div class="col-md-12 text-center mb-3" *ngIf="visible">
+            Puntuacion:
+            <div class="mb-3">
+              <span
+                class="star"
+                (click)="rateCourse(index)"
+                [ngClass]="{
+                  selected: index < selectedStarIndex,
+                  gold: index <= selectedStarIndex
+                }"
+                *ngFor="let star of stars; let index = index"
+                >&#9733;</span
+              >
+            </div>
+            <p>
+              Puntuación: <span>{{ selectedStarIndex + 1 }}</span>
+            </p>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Valoracion del curso</label
+              >
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                placeholder="Escribe una reseña del curso..."
+                formControlName="comentario"
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+          <div class="col-md-12 text-center">
+            <h3 class="text-white">Valoraciones</h3>
+
+            <ng-container *ngFor="let valoracion of valoraciones">
+              <span>
+                {{ valoracion.usuario.nombre }}
+                {{ valoracion.usuario.apellido }} </span
+              ><br />
+              <span>Puntuacion: {{ valoracion.puntuacion }}</span>
+              <p>Comentario: {{ valoracion.comentario }}</p>
+            </ng-container>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
