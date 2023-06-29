@@ -1,16 +1,54 @@
-<div class="container">
-  <ul *ngFor="let curso of cursos; let i = index" class="text-white">
-    <li>
-      {{ curso.nombre }}
-    </li>
-    <li>
-      {{ curso.precio }}
-    </li>
+<div class="container main-content text-white my-4">
+  <div class="row">
+    <div class="col-md-12 fondoCarta py-4">
+      <div class="mb-4">
+        <h2 class="text-center">Carrito de compras</h2>
+        <hr style="color: white" />
+      </div>
+      <div class="table-responsive">
+        <table
+          class="table table-dark table-striped table-hover table-bordered align-middle"
+        >
+          <thead class="align-middle">
+            <tr>
+              <th scope="col">Titulo curso</th>
+              <th scope="col">Instructor</th>
+              <th style="width: 14%" scope="col">Precio</th>
+              <th class="text-center" scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let curso of cursos; let i = index">
+              <th scope="row">{{ curso.nombre | titlecase }}</th>
+              <td>
+                {{ curso.instructor.usuario.nombre | titlecase }}
+                {{ curso.instructor.usuario.apellido | titlecase }}
+              </td>
+              <td>{{ curso.precio | currency : "CLP" }}</td>
 
-    <button class="btn btn-danger" (click)="onClick(i)">Borrar</button>
-  </ul>
+              <td class="text-md-center">
+                <button
+                  (click)="onClick(i)"
+                  class="btn btn-outline-danger botonesLista mx-1"
+                >
+                  <i class="bi bi-x-square"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <h4 class="text-white">Total: {{ total | currency : "CLP" }}</h4>
+          </tfoot>
+        </table>
 
-  <h4 class="text-white">Total: {{ total | currency : "CLP" }}</h4>
-
-  <button class="btn btn-success" (click)="comprar()">Comprar</button>
+        <button
+          class="btn btn-success"
+          [disabled]="cursos.length <= 0"
+          (click)="comprar()"
+        >
+          Comprar
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
